@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS Modules | Softvision Technology</title>
+    <style>
+        /* CORE REBOOT INTERFACE */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Courier New', monospace; }
+        :root { --primary: #00ff88; --secondary: #00ccff; --dark: #0a0a0a; --darker: #050505; --light: #ffffff; --gray: #222222; }
+        body { background: var(--darker); color: var(--light); overflow-x: hidden; padding-top: 100px; }
+
+        /* HEADER FRAME */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; z-index: 1000; background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray); }
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 5px; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .back-nav { color: var(--primary); text-decoration: none; font-size: 12px; letter-spacing: 2px; }
+
+        /* MAIN CONTAINER LAYOUT */
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: start; }
+
+        /* ANIMATION SEQUENCE 1: Terminal Text Boot-up */
+        .service-intro { opacity: 0; animation: terminalBoot 0.8s cubic-bezier(0.15, 0.85, 0.45, 1) forwards; }
+        @keyframes terminalBoot {
+            0% { transform: translateY(20px); opacity: 0; filter: blur(5px); }
+            100% { transform: translateY(0); opacity: 1; filter: blur(0); }
+        }
+
+        .tag { display: inline-block; font-size: 11px; color: var(--primary); letter-spacing: 3px; margin-bottom: 15px; border: 1px solid rgba(0, 255, 136, 0.2); padding: 4px 12px; background: rgba(0, 255, 136, 0.02); }
+        h1 { font-size: 46px; letter-spacing: 2px; margin-bottom: 25px; line-height: 1.1; }
+        .gradient { background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .main-desc { font-size: 14px; line-height: 1.8; color: #a0a0a0; margin-bottom: 30px; }
+
+        /* ANIMATION SEQUENCE 2: Live Diagnostic Diagnostic Scanner */
+        .visual-display { background: var(--dark); border: 1px solid var(--gray); padding: 30px; position: relative; overflow: hidden; min-height: 350px; display: flex; flex-direction: column; justify-content: space-between; }
+        .visual-display::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: rgba(0, 255, 136, 0.4); box-shadow: 0 0 15px var(--primary); animation: radarScan 4s linear infinite; }
+        @keyframes radarScan {
+            0% { top: 0%; }
+            50% { top: 100%; }
+            100% { top: 0%; }
+        }
+
+        .sys-status { display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 2px; }
+        .pulse-dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 10px var(--primary); animation: neonPulse 1.5s infinite; }
+        @keyframes neonPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.4; }
+        }
+
+        /* ANIMATION SEQUENCE 3: Cascading Grid Items Entry */
+        .feature-grid { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+        .feat-card { background: var(--dark); border: 1px solid var(--gray); padding: 25px; opacity: 0; transform: translateX(-20px); animation: slideInRow 0.5s ease forwards; }
+        
+        /* Staggering card load-ins */
+        .feat-card:nth-child(1) { animation-delay: 0.3s; }
+        .feat-card:nth-child(2) { animation-delay: 0.5s; }
+        .feat-card:nth-child(3) { animation-delay: 0.7s; }
+
+        @keyframes slideInRow {
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .feat-card:hover { border-color: var(--primary); background: #0e0e0e; }
+        .feat-card h3 { font-size: 14px; letter-spacing: 1px; color: var(--secondary); margin-bottom: 8px; }
+        .feat-card p { font-size: 12px; color: #888; line-height: 1.6; }
+
+        /* ACTION TRIGGERS */
+        .action-container { margin-top: 40px; display: flex; gap: 20px; }
+        .btn { padding: 15px 30px; font-size: 12px; letter-spacing: 2px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .btn-main { background: var(--primary); color: var(--darker); }
+        .btn-main:hover { background: var(--light); box-shadow: 0 0 15px var(--primary); }
+        .btn-sec { border: 1px solid var(--light); color: var(--light); }
+        .btn-sec:hover { background: var(--light); color: var(--darker); }
+
+        /* RESPONSIVE ADAPTER */
+        @media (max-width: 850px) {
+            .container { grid-template-columns: 1fr; gap: 40px; }
+            .visual-display { min-height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">SOFTVISION</a>
+        <a href="index.html#services" class="back-nav">← RETURN TO SYSTEM MATRIX</a>
+    </nav>
+
+    <main class="container">
+        <div class="service-intro">
+            <span class="tag">SYSTEM MODULE // 01</span>
+            <h1>SMART <span class="gradient">POS SYSTEMS</span></h1>
+            <p class="main-desc">
+                Engineered for maximum transaction efficiency across retail networks in Sri Lanka. Our point of sale system handles inventory loops, live pipeline generation, and customer logging metrics simultaneously. Works uninterrupted in full offline environments.
+            </p>
+
+            <div class="feature-grid">
+                <div class="feat-card">
+                    <h3>[01] STOCK LEVEL AUTOMATION</h3>
+                    <p>Live inventory tracking tracks threshold parameters and warns operators before structural stock deficits occur.</p>
+                </div>
+                <div class="feat-card">
+                    <h3>[02] INSTANT BILLING PIPELINE</h3>
+                    <p>Highly optimized checkout engine compatible with standard thermal hardware configurations and barcode processing arrays.</p>
+                </div>
+                <div class="feat-card">
+                    <h3>[03] FINANCIAL DIAGNOSTICS</h3>
+                    <p>Generates instantaneous system logs tracking margins, item balances, and shift summaries with end-to-end data safety.</p>
+                </div>
+            </div>
+
+            <div class="action-container">
+                <a href="contact.html" class="btn btn-main">DEPLOY MODULE</a>
+                <a href="index.html#services" class="btn btn-sec">VIEW ALL HARDWARE</a>
+            </div>
+        </div>
+
+        <div class="visual-display">
+            <div class="sys-status">
+                <div class="pulse-dot"></div>
+                <span>POS ENGINE ONLINE // LIVE PIPELINE DATA</span>
+            </div>
+            <div style="font-size: 11px; color: #444; line-height: 1.8;">
+                [SYS_LOG] Initializing POS tracking stream...<br>
+                [SYS_LOG] Local cache layer verified.<br>
+                [SYS_LOG] Syncing with primary server node: OK.<br>
+                [SYS_LOG] Operational efficiency baseline: 99.98%
+            </div>
+            <div style="font-size: 48px; color: rgba(0, 255, 136, 0.05); font-weight: bold; text-align: right; user-select: none;">
+                v5.0.2
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

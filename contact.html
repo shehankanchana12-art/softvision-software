@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect | Softvision Technology</title>
+    <style>
+        /* BASE MATRIX INTERFACE */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Courier New', monospace; }
+        :root { --primary: #00ff88; --secondary: #00ccff; --dark: #0a0a0a; --darker: #050505; --light: #ffffff; --gray: #222222; }
+        body { background: var(--darker); color: var(--light); padding-top: 100px; min-height: 100vh; display: flex; flex-direction: column; }
+
+        /* HEADER FRAME */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; z-index: 1000; background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray); }
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 5px; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .home-nav { color: var(--secondary); text-decoration: none; font-size: 12px; letter-spacing: 2px; }
+
+        /* MAIN WRAPPER COMPONENT */
+        .contact-frame { max-width: 1100px; margin: auto; padding: 40px 20px; width: 100%; display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; flex-grow: 1; align-items: center; }
+
+        /* ANIMATED DATA CORE BOOTUP */
+        .info-panel { opacity: 0; transform: translateX(-30px); animation: panelBootIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .form-panel { opacity: 0; transform: translateX(30px); animation: panelBootIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        @keyframes panelBootIn {
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .tag { display: inline-block; font-size: 11px; color: var(--primary); letter-spacing: 3px; margin-bottom: 15px; border: 1px solid rgba(0, 255, 136, 0.2); padding: 4px 12px; }
+        h1 { font-size: 42px; letter-spacing: 2px; margin-bottom: 20px; }
+        .gradient { background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .sub-desc { font-size: 13px; color: #777; margin-bottom: 40px; line-height: 1.6; }
+
+        /* INTERACTIVE LOG CARD CHASSIS */
+        .terminal-card { background: var(--dark); border: 1px solid var(--gray); padding: 25px; margin-bottom: 20px; transition: 0.3s; position: relative; overflow: hidden; }
+        .terminal-card:hover { border-color: var(--secondary); background: #0b1114; transform: translateY(-2px); }
+        .terminal-card h4 { font-size: 12px; letter-spacing: 3px; color: var(--secondary); margin-bottom: 10px; }
+        .terminal-card p { font-size: 15px; color: #ddd; font-weight: bold; letter-spacing: 1px; }
+        .terminal-card a { color: inherit; text-decoration: none; transition: 0.2s; }
+        .terminal-card a:hover { color: var(--primary); }
+
+        /* INPUT MATRIX CONSOLE */
+        .interactive-form { background: var(--dark); border: 1px solid var(--gray); padding: 40px; position: relative; }
+        .interactive-form h3 { font-size: 16px; letter-spacing: 2px; margin-bottom: 40px; border-left: 2px solid var(--primary); padding-left: 15px; }
+        
+        .form-group { position: relative; margin-bottom: 35px; }
+        .form-group input { width: 100%; padding: 12px 5px; background: transparent; border: none; border-bottom: 1px solid var(--gray); color: var(--light); font-family: inherit; font-size: 13px; transition: 0.3s; }
+        .form-group input:focus { outline: none; border-bottom-color: var(--primary); }
+        .form-group label { position: absolute; left: 5px; top: 12px; color: #555; font-size: 11px; letter-spacing: 1px; transition: 0.3s ease; pointer-events: none; }
+        
+        /* Interactive Floating Mechanism */
+        .form-group input:focus ~ label,
+        .form-group input:not(:placeholder-shown) ~ label { top: -15px; font-size: 10px; color: var(--primary); }
+
+        .submit-btn { width: 100%; padding: 16px; background: transparent; border: 1px solid var(--primary); color: var(--primary); font-family: inherit; font-size: 12px; letter-spacing: 2px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .submit-btn:hover { background: var(--primary); color: var(--darker); box-shadow: 0 0 15px rgba(0, 255, 136, 0.3); }
+
+        /* RESPONSIVE LAYOUT MATRIX */
+        @media (max-width: 850px) {
+            .contact-frame { grid-template-columns: 1fr; gap: 40px; padding-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">SOFTVISION</a>
+        <a href="index.html" class="home-nav">PORTAL HOME // OO</a>
+    </nav>
+
+    <div class="contact-frame">
+        <div class="info-panel">
+            <span class="tag">COMMS NODE LOG IN</span>
+            <h1>GET IN <span class="gradient">TOUCH</span></h1>
+            <p class="sub-desc">Connect directly to our headquarters console in Mahiyanganaya. Select an active communication route below.</p>
+            
+            <div class="terminal-card">
+                <h4>[📞 TELEPHONE STACK]</h4>
+                <p><a href="tel:+94704449091">+94 70 444 9091</a></p>
+            </div>
+
+            <div class="terminal-card">
+                <h4>[✉️ EMAIL INBOX]</h4>
+                <p><a href="mailto:info@busy.lk">INFO@BUSY.LK</a></p>
+            </div>
+
+            <div class="terminal-card">
+                <h4>[📍 GEOLOCATION CODES]</h4>
+                <p>MCC, MAHIYANGANAYA, SRI LANKA</p>
+            </div>
+        </div>
+
+        <div class="form-panel">
+            <form class="interactive-form" id="commsForm">
+                <h3>TRANSMIT DIRECT INQUIRY</h3>
+                <div class="form-group">
+                    <input type="text" placeholder=" " required id="clientName">
+                    <label>YOUR NAME</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder=" " required id="clientPhone">
+                    <label>PHONE NUMBER</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder=" " required id="clientMsg">
+                    <label>MESSAGE SPECIFICATIONS</label>
+                </div>
+                <button type="submit" class="submit-btn">BROADCAST PACKET</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('commsForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = document.querySelector('.submit-btn');
+            btn.textContent = 'TRANSMITTING PACKET...';
+            btn.style.borderColor = 'var(--secondary)';
+            btn.style.color = 'var(--secondary)';
+            
+            setTimeout(() => {
+                alert('DATA SECURED: Communication parameters transmitted to central grid.');
+                btn.textContent = 'BROADCAST COMPLETE';
+                btn.style.borderColor = 'var(--primary)';
+                btn.style.color = 'var(--primary)';
+                document.getElementById('commsForm').reset();
+                
+                setTimeout(() => {
+                    btn.textContent = 'BROADCAST PACKET';
+                }, 3000);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
